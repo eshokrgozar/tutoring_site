@@ -257,3 +257,83 @@ p {
   color: var(--color-muted);
 }
 
+/* =========================
+   RESPONSIVE (MOBILE)
+   ========================= */
+
+@media (max-width: 768px) {
+
+  /* Global spacing adjustment */
+  .container {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .hero-image {
+    order: -1; /* Image first on mobile */
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* TWO COLUMN SECTIONS */
+  .two-col,
+  .two-col.reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Remove direction trick on mobile */
+  .two-col.reverse {
+    direction: ltr;
+  }
+
+  /* Image cards should feel intentional */
+  .image-card {
+    max-width: 100%;
+  }
+
+  /* CTA */
+  .cta-actions {
+    flex-direction: column;
+  }
+
+  /* Typography tweaks */
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Collapse grids */
+  .two-col,
+  .two-col.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reset direction trick */
+  .two-col.reverse {
+    direction: ltr;
+  }
+
+  /* ✅ Preserve left → right order on mobile */
+  .two-col .image-card {
+    order: 1;
+  }
+
+  .two-col .section-content {
+    order: 2;
+  }
+}
