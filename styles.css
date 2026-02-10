@@ -1,0 +1,259 @@
+/* =========================
+   CSS VARIABLES
+   ========================= */
+:root {
+  /* Colors */
+  --color-background: #ffffff;
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
+  --color-accent: #000000;
+  --color-muted: #999999;
+  --color-dark-bg: #0f0f0f;
+  --color-light-text: #f5f5f5;
+
+  /* Typography */
+  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* Layout */
+  --container-width: 1100px;
+  --border-radius: 8px;
+}
+
+/* =========================
+   BASE STYLES
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+h1, h2 {
+  margin: 0 0 var(--space-sm);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+p {
+  margin: 0 0 var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--font-size-small);
+  margin-bottom: var(--space-sm);
+  color: var(--color-muted);
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn-secondary {
+  color: var(--color-text-primary);
+}
+
+.btn-light {
+  background: #fff;
+  color: #000;
+}
+
+.btn-outline {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero-description {
+  max-width: 420px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.hero-image {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  background: #fff;
+  padding: var(--space-sm);
+  font-size: var(--font-size-small);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+.section {
+  padding-top: var(--space-xl);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.two-col.reverse {
+  direction: rtl;
+}
+
+.two-col.reverse > * {
+  direction: ltr;
+}
+
+.section-index {
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+}
+
+.credentials,
+.roles {
+  margin-bottom: var(--space-md);
+}
+
+.credentials li {
+  margin-bottom: var(--space-xs);
+}
+
+.logos {
+  display: flex;
+  gap: var(--space-sm);
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+}
+
+/* =========================
+   CTA
+   ========================= */
+.cta {
+  background: var(--color-dark-bg);
+  color: var(--color-light-text);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.light {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+/* =========================
+   EXPERIENCE LIST
+   ========================= */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.experience-item p {
+  margin: var(--space-xs) 0 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-header strong {
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+
+.experience-meta {
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+}
+
