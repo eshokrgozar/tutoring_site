@@ -232,7 +232,7 @@ p {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .experience-item p {
@@ -253,7 +253,7 @@ p {
 }
 
 .experience-meta {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-body);
   color: var(--color-muted);
 }
 
