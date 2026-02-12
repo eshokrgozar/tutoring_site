@@ -337,3 +337,21 @@ p {
     order: 2;
   }
 }
+
+
+/* =========================
+   LOCATION TITLE
+   ========================= */
+
+.location-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+@media (max-width: 768px) {
+  .location-title {
+    font-size: 1.1rem;
+  }
+}
