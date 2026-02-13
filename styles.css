@@ -118,7 +118,7 @@ p {
 }
 
 /* =========================
-   HERO (UNCHANGED)
+   HERO
    ========================= */
 .hero {
   display: grid;
@@ -257,7 +257,7 @@ p {
 }
 
 /* =========================
-   MOBILE (CONSOLIDATED)
+   MOBILE 
    ========================= */
 @media (max-width: 768px) {
 
