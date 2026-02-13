@@ -351,7 +351,50 @@ p {
 }
 
 @media (max-width: 768px) {
-  .location-title {
-    font-size: 1.1rem;
+
+  /* Ensure hero is a grid on mobile */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
   }
+
+  /* Show and position mobile title */
+  .mobile-location-title {
+    display: block;
+    order: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Image comes after title */
+  .hero-image {
+    order: 2;
+  }
+
+  /* Main text comes after image */
+  .hero-content {
+    order: 3;
+  }
+}
+
+
+
+/* =========================
+   MOBILE LOCATION TITLE
+   ========================= */
+
+.mobile-location-title {
+  display: none;
+  text-align: left;
+}
+
+.mobile-location-title h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.mobile-location-title p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
 }
