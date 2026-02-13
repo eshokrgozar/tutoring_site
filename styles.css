@@ -2,7 +2,6 @@
    CSS VARIABLES
    ========================= */
 :root {
-  /* Colors */
   --color-background: #ffffff;
   --color-text-primary: #111111;
   --color-text-secondary: #666666;
@@ -11,7 +10,6 @@
   --color-dark-bg: #0f0f0f;
   --color-light-text: #f5f5f5;
 
-  /* Typography */
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
   --font-size-h1: 3rem;
@@ -19,20 +17,18 @@
   --font-size-body: 1rem;
   --font-size-small: 0.875rem;
 
-  /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 3rem;
   --space-xl: 4rem;
 
-  /* Layout */
   --container-width: 1100px;
   --border-radius: 8px;
 }
 
 /* =========================
-   BASE STYLES
+   BASE
    ========================= */
 * {
   box-sizing: border-box;
@@ -52,7 +48,8 @@ img {
   border-radius: var(--border-radius);
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0 0 var(--space-sm);
   line-height: 1.2;
 }
@@ -121,13 +118,28 @@ p {
 }
 
 /* =========================
-   HERO
+   HERO (UNCHANGED)
    ========================= */
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: var(--space-lg);
   align-items: center;
+}
+
+.hero-location {
+  grid-column: 1 / 2;
+}
+
+.location-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.hero-content {
+  grid-column: 1 / 2;
 }
 
 .hero-description {
@@ -139,17 +151,9 @@ p {
   gap: var(--space-sm);
 }
 
-.hero-location {
-  grid-column: 1/2;
-}
-
-.hero-content {
-  grid-column: 1/2;
-}
-
 .hero-image {
   position: relative;
-  grid-column: 2/3;
+  grid-column: 2 / 3;
 }
 
 .badge {
@@ -160,7 +164,6 @@ p {
   padding: var(--space-xs);
   font-size: var(--font-size-small);
   border-radius: var(--border-radius);
-  text-align: center;
 }
 
 /* =========================
@@ -207,6 +210,31 @@ p {
 }
 
 /* =========================
+   EXPERIENCE
+   ========================= */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.experience-item p {
+  margin: var(--space-xs) 0 0;
+  font-size: var(--font-size-small);
+  max-width: 480px;
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-meta {
+  font-size: var(--font-size-body);
+  color: var(--color-muted);
+}
+
+/* =========================
    CTA
    ========================= */
 .cta {
@@ -228,69 +256,23 @@ p {
   margin-top: var(--space-md);
 }
 
-.light {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-
-
 /* =========================
-   EXPERIENCE LIST
+   MOBILE (CONSOLIDATED)
    ========================= */
-
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.experience-item p {
-  margin: var(--space-xs) 0 0;
-  font-size: var(--font-size-small);
-  color: var(--color-text-secondary);
-  max-width: 480px;
-}
-
-.experience-header {
-  display: flex;
-  flex-direction: column;
-}
-
-.experience-header strong {
-  font-size: var(--font-size-body);
-  color: var(--color-text-primary);
-}
-
-.experience-meta {
-  font-size: var(--font-size-body);
-  color: var(--color-muted);
-}
-
-/* =========================
-   RESPONSIVE (MOBILE)
-   ========================= */
-
 @media (max-width: 768px) {
 
-  /* Global spacing adjustment */
   .container {
     padding: var(--space-md) var(--space-sm);
   }
 
-
-    /* Make hero-content behave like a stack */
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    order: 3;
-    grid-column: 1 / -1;
-  }
-
-  /* HERO */
   .hero {
     grid-template-columns: 1fr;
     gap: var(--space-md);
-    display: grid;
+  }
+
+  .hero-location {
+    order: 1;
+    grid-column: 1 / -1;
   }
 
   .hero-image {
@@ -298,62 +280,25 @@ p {
     grid-column: 1 / -1;
   }
 
-  /* Location block comes first */
-  .hero-location {
-    order: 1;
+  .hero-content {
+    order: 3;
     grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
   }
+
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  /* TWO COLUMN SECTIONS */
   .two-col,
   .two-col.reverse {
     grid-template-columns: 1fr;
     gap: var(--space-md);
-  }
-
-  /* Remove direction trick on mobile */
-  .two-col.reverse {
     direction: ltr;
   }
 
-  /* Image cards should feel intentional */
-  .image-card {
-    max-width: 100%;
-  }
-
-  /* CTA */
-  .cta-actions {
-    flex-direction: column;
-  }
-
-  /* Typography tweaks */
-  h1 {
-    font-size: 2.25rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-
-  /* Collapse grids */
-  .two-col,
-  .two-col.reverse {
-    grid-template-columns: 1fr;
-  }
-
-  /* Reset direction trick */
-  .two-col.reverse {
-    direction: ltr;
-  }
-
-  /* ✅ Preserve left → right order on mobile */
   .two-col .image-card {
     order: 1;
   }
@@ -361,65 +306,16 @@ p {
   .two-col .section-content {
     order: 2;
   }
-}
 
-
-/* =========================
-   LOCATION TITLE
-   ========================= */
-
-.location-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-xs);
-}
-
-@media (max-width: 768px) {
-
-  /* Ensure hero is a grid on mobile */
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr;
+  .cta-actions {
+    flex-direction: column;
   }
 
-  /* Show and position mobile title */
-  .mobile-location-title {
-    display: block;
-    order: 1;
-    margin-bottom: var(--space-sm);
+  h1 {
+    font-size: 2.25rem;
   }
 
-  /* Image comes after title */
-  .hero-image {
-    order: 2;
+  h2 {
+    font-size: 1.75rem;
   }
-
-  /* Main text comes after image */
-  .hero-content {
-    order: 3;
-  }
-}
-
-
-
-/* =========================
-   MOBILE LOCATION TITLE
-   ========================= */
-
-.mobile-location-title {
-  display: none;
-  text-align: left;
-}
-
-.mobile-location-title h2 {
-  font-size: 1.1rem;
-  margin: 0 0 0.25rem;
-  font-weight: 600;
-}
-
-.mobile-location-title p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
 }
